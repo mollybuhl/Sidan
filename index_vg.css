@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    background-image: url("images/backdrop.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+nav div{
+    background-color: rgb(245, 245, 245,0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+nav div:hover{
+    background-color: rgb(0, 0, 0,0.5);
+    color: white;
+}
+
+article{
+    color:white;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 2px solid rgb(255, 255, 255,0.5);
+    padding:15px;
+    border-radius: 10px;
+}
