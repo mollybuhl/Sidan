@@ -91,5 +91,10 @@ article{
     display: none;
 }
 
+#are_you_experienced .song_list div{
+    background-color: #3087CC;
+    color:white;
+    padding: 5px;
+}
 
 
