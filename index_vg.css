@@ -15,7 +15,7 @@ body{
     background-size: cover;
     background-attachment: fixed;
 
-    color:white;
+    color:rgb(203, 203, 203);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -57,6 +57,12 @@ nav div:hover{
     color: white;
 }
 
+.marked{
+    border: 1px solid white;
+    box-shadow: 1px 1px 8px whitesmoke;
+    font-weight: bold;
+}
+
 article{
     margin-top:50px;
     padding:20px;
@@ -66,7 +72,7 @@ article{
     border-radius: 10px;
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 2fr;
     grid-template-rows: 2fr 1fr 1fr;
     gap:10px;
 }
@@ -91,10 +97,86 @@ article{
     display: none;
 }
 
-#are_you_experienced .song_list div{
-    background-color: #3087CC;
-    color:white;
-    padding: 5px;
+article .song_list{
+    grid-column: 2;
+    grid-row: 2;
+
+    display: flex;
+    gap: 1vw;
+    justify-content: space-between;
+
 }
+#are_you_experienced .song_list div{
+    background-color:#FC415C;
+    color:#F2CD24;
+    padding: 5px;
+    flex-grow: 1;
+}
+
+#axis_bold_as_love .song_list div{
+    background-color:#03E55F;
+    color:#CA61BD;
+    padding: 5px;
+    flex-grow: 1;
+}
+
+article .song_list div:nth-child(1){
+    border-radius: 0 0 0 15px;
+}
+article .song_list div:nth-child(2){
+    border-radius: 0 0 15px 0;
+}
+
+.anecdotes{
+    grid-column: 1/span 2;
+    grid-row: 3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap:1vw;
+
+    list-style: none;
+}
+
+.empty {
+    display: none;
+}
+
+#are_you_experienced .anecdotes > li{
+    background-color: #F2CD24;
+    color: #CA61BD;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.image_1{
+    background-image: url("images/luke_test.webp");
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 0 10px 10px 10px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.top_right_90{
+    border-radius: 15px 0 15px 15px;
+}
+.bottom_left_90 {
+    grid-column: 3/span 2;
+    border-radius: 15px 15px 15px 0;
+}
+
+.top_left_90{
+    grid-column: 5;
+}
+.bottom_right_90{
+    grid-column: 6;
+    border-radius: 15px 15px 0 15px;
+}
+
+
 
 
