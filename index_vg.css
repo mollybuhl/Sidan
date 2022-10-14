@@ -8,6 +8,10 @@
     src:url("BungeeOutline-Regular.ttf")
 }
 
+:root{
+    --padding_10:10px;
+}
+
 body{
     margin: 0;
     background-image: url("images/5SOS_backdrop_3.jpg");
@@ -97,6 +101,14 @@ article{
     display: none;
 }
 
+.cover:hover .show_not_hover{
+    display: none;
+}
+
+.cover:hover .show_hover{
+    display: block;
+}
+
 article .song_list{
     grid-column: 2;
     grid-row: 2;
@@ -109,14 +121,14 @@ article .song_list{
 #are_you_experienced .song_list div{
     background-color:#FC415C;
     color:#F2CD24;
-    padding: 5px;
+    padding: var(--padding_10);
     flex-grow: 1;
 }
 
 #axis_bold_as_love .song_list div{
     background-color:#03E55F;
-    color:#CA61BD;
-    padding: 5px;
+    color:#046BD0;
+    padding: var(--padding_10);
     flex-grow: 1;
 }
 
@@ -142,40 +154,58 @@ article .song_list div:nth-child(2){
 .empty {
     display: none;
 }
+.anecdotes li{
+    padding: var(--padding_10);
+    box-sizing: border-box;
+}
 
 #are_you_experienced .anecdotes > li{
     background-color: #F2CD24;
     color: #CA61BD;
-    padding: 5px;
-    box-sizing: border-box;
+}
+
+#axis_bold_as_love .anecdotes > li{
+    background-color: #046BD0;
+    color: #03E55F;;
 }
 
 .image_1{
-    background-image: url("images/luke_test.webp");
+    background-image: url("images/luke_hemmings.jpg");
     background-position: center;
     background-size: cover;
-
-    border-radius: 0 10px 10px 10px;
 
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-}
-.top_right_90{
-    border-radius: 15px 0 15px 15px;
-}
-.bottom_left_90 {
-    grid-column: 3/span 2;
-    border-radius: 15px 15px 15px 0;
+
+    grid-column: 5;
 }
 
 .top_left_90{
-    grid-column: 5;
+    border-radius: 0 10px 10px 10px;
 }
+
+#axis_bold_as_love .image_1{
+    background-image: url("images/studio.jpg");
+}
+
+.top_right_90{
+    border-radius: 15px 0 15px 15px;
+}
+.two_wide {
+    grid-column: span 2;
+    border-radius: 15px 15px 15px 0;
+}
+
+#are_you_experienced .two_wide{
+    grid-column: 3/span 2;
+}
+
 .bottom_right_90{
     grid-column: 6;
     border-radius: 15px 15px 0 15px;
 }
+
 
 
 
