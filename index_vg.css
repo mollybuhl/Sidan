@@ -10,6 +10,8 @@
 
 :root{
     --padding_10:10px;
+    --heading:5vw;
+    --sub_heading: calc(0.6* var(--heading));
 }
 
 body{
@@ -32,7 +34,7 @@ body > div{
 }
 
 header h1{
-    font-size: 4vw;
+    font-size: var(--heading);
     font-family: BungeeShade-Regular;
     margin-top: 0;
 }
@@ -77,12 +79,13 @@ article{
 
     display: grid;
     grid-template-columns: 3fr 2fr;
-    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-rows: 50% 25% 25%;
     gap:10px;
 }
 
 .album_data h1{
     font-family:BungeeOutline-Regular;
+    font-size: var(--sub_heading);
     letter-spacing: 2px;
     margin: 0;
 }
