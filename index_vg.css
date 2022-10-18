@@ -12,6 +12,8 @@
     --padding_10:10px;
     --heading:5vw;
     --sub_heading: calc(0.6* var(--heading));
+    --nav_text: calc(0.4*var(--heading));
+    --text: calc(0.3*var(--heading));
 }
 
 body{
@@ -52,10 +54,11 @@ nav div{
     padding: 20px;
     border-radius: 10px;
 
+    flex-basis: 0;
     flex-grow: 1;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
+    font-size: var(--nav_text);
 }
 
 nav div:hover{
@@ -76,6 +79,7 @@ article{
     background-color: rgb(0, 0, 0, 0.5);
     border: 2px solid rgb(255, 255, 255,0.5);
     border-radius: 10px;
+    font-size: var(--text);
 
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -88,6 +92,7 @@ article{
     font-size: var(--sub_heading);
     letter-spacing: 2px;
     margin: 0;
+
 }
 
 .album_data h2{
@@ -95,8 +100,10 @@ article{
 }
 
 .cover img{
-    max-width:100%;
-    height:auto;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     border-radius: 15px 15px 0 0;
 }
 
@@ -112,15 +119,30 @@ article{
     display: block;
 }
 
-article .song_list{
+.song_list{
     grid-column: 2;
     grid-row: 2;
 
     display: flex;
     gap: 1vw;
     justify-content: space-between;
-
 }
+
+.song_list > div{
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.song_list h2{
+    font-size: var(--text);
+}
+
+.song_list ul{
+    
+    list-style-type: decimal;
+}
+
+
 #are_you_experienced .song_list div{
     background-color:#FC415C;
     color:#F2CD24;
@@ -151,6 +173,8 @@ article .song_list div:nth-child(2){
     grid-template-rows: 1fr;
     gap:1vw;
 
+    width: 100%;
+    padding: 0;
     list-style: none;
 }
 
@@ -198,6 +222,10 @@ article .song_list div:nth-child(2){
 .two_wide {
     grid-column: span 2;
     border-radius: 15px 15px 15px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #are_you_experienced .two_wide{
@@ -210,6 +238,92 @@ article .song_list div:nth-child(2){
 }
 
 
+@media (min-width:900px) and (max-width: 1111px){
+    --heading:
+}
+
+@media (max-width: 800px){
+    header h1{
+        text-align: center
+    }
+
+    .cover{
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .cover img{
+        border-radius: 15px 0 0 15px;
+    }
+
+    .cover:hover .show_hover{
+        display: none;
+    }
+
+    .cover:hover .show_not_hover{
+        display: block;
+    }
+
+    .song_list{
+        grid-row: 1;
+        flex-direction: column;
+    }
+
+    .song_list h2{
+        font-size: var(--sub_heading);
+    }
+    article .song_list div:nth-child(1){
+        border-radius: 0 15px 0 0;
+    }
+   
+    .album_data{
+        grid-row: 2;
+        grid-column: 1/span 2;
+    }
+
+    .anecdotes{
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .image_1{
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .bottom_right_90{
+        grid-column: 4;
+        grid-row: 2;
+    }
+    
+    #axis_bold_as_love .image_1{
+        grid-column: 2/span 2;
+    }
+
+}
 
 
+@media (max-width:500px){
+ article{
+    grid-template-columns: 1fr;
+ }   
+ .cover img{
+    border-radius: 15px 15px 0 0;
+}
+
+ .song_list{
+    grid-row: 2;
+    grid-column: 1;
+    flex-direction: row;
+}
+
+article .song_list div:nth-child(1){
+    border-radius: 0 0 0 15px;
+}
+
+body > div{
+    margin: 0;
+    border-radius: 0;
+}
+
+}
 
