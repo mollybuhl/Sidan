@@ -13,18 +13,20 @@
     --heading:5vw;
     --sub_heading: calc(0.6* var(--heading));
     --nav_text: calc(0.4*var(--heading));
-    --text: calc(0.3*var(--heading));
+    --bigger_text: calc(0.3*var(--heading));
+    --text: calc(0.25*var(--heading));
 }
 
 body{
     margin: 0;
-    background-image: url("images/5SOS_backdrop_3.jpg");
+    background-image: url("images/test/Screen-Shot-2022-03-03-at-8.09.47-AM.webp");
     background-position:center;
     background-size: cover;
     background-attachment: fixed;
 
     color:rgb(203, 203, 203);
     font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--text);
 }
 
 
@@ -32,8 +34,12 @@ body > div{
     background-color: rgb(0, 0, 0,0.5);
     border-radius: 15px;
     margin: 70px 50px;
-    padding:20px;
+    padding:20px 20px 70px 20px;
+
+    position: relative;
 }
+
+
 
 header h1{
     font-size: var(--heading);
@@ -71,6 +77,10 @@ nav div:hover{
     box-shadow: 1px 1px 8px whitesmoke;
     font-weight: bold;
 }
+.marked:hover{
+    background-color: rgb(245, 245, 245,0.5);
+    color: black;
+}
 
 article{
     margin-top:50px;
@@ -87,36 +97,49 @@ article{
     gap:10px;
 }
 
+.album_data{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .album_data h1{
     font-family:BungeeOutline-Regular;
     font-size: var(--sub_heading);
     letter-spacing: 2px;
     margin: 0;
-
+    margin-top: -5vh;
 }
 
 .album_data h2{
-    margin-top: 0;
+    margin-top: -3vh;
+}
+.cover{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCFBFF;
+    border-radius: 15px 15px 0 0;
 }
 
 .cover img{
     width:100%;
     height: 100%;
-    object-fit: cover;
     object-position: center;
+    object-fit: contain;
+    
     border-radius: 15px 15px 0 0;
-}
 
-.show_hover{
-    display: none;
+    position: absolute;
+    top:0;
+
+    transition-property: opacity;
+    transition-duration: 1s;
 }
 
 .cover:hover .show_not_hover{
-    display: none;
-}
-
-.cover:hover .show_hover{
-    display: block;
+  opacity: 0;
 }
 
 .song_list{
@@ -131,30 +154,30 @@ article{
 .song_list > div{
     flex-basis: 0;
     flex-grow: 1;
+    padding: 15px;
+    flex-grow: 1;
 }
 
 .song_list h2{
-    font-size: var(--text);
+    font-size: var(--bigger_text);
+    margin: 0;
+    padding-bottom: 4px;
 }
 
 .song_list ul{
-    
+    padding-left: 15px;
     list-style-type: decimal;
+    margin: 0;
 }
 
-
 #are_you_experienced .song_list div{
-    background-color:#FC415C;
-    color:#F2CD24;
-    padding: var(--padding_10);
-    flex-grow: 1;
+    background-color:#F4796A;
+    color: #F6B29B;
 }
 
 #axis_bold_as_love .song_list div{
-    background-color:#03E55F;
-    color:#046BD0;
-    padding: var(--padding_10);
-    flex-grow: 1;
+    background-color:#273385;
+    color:#361D47;
 }
 
 article .song_list div:nth-child(1){
@@ -187,13 +210,13 @@ article .song_list div:nth-child(2){
 }
 
 #are_you_experienced .anecdotes > li{
-    background-color: #F2CD24;
-    color: #CA61BD;
+    background-color: #F6B29B;
+    color: #F4796A;
 }
 
 #axis_bold_as_love .anecdotes > li{
-    background-color: #046BD0;
-    color: #03E55F;;
+    background-color: #361D47;
+    color: #273385;
 }
 
 .image_1{
@@ -236,7 +259,23 @@ article .song_list div:nth-child(2){
     grid-column: 6;
     border-radius: 15px 15px 0 15px;
 }
+#axis_bold_as_love .album_data{
+    position: relative;
+}
+#axis_bold_as_love .album_data::before{
+    content: url('../../media/media/number-1-icon.png');
+    background-image: url("");
+    display: inline-block;
+    position: absolute;
+    top:5px;
+    height: 15px;
+    width: 15px;
+}
 
+footer{
+    position: absolute;
+    bottom: 20px;
+}
 
 @media (min-width:900px) and (max-width: 1111px){
     --heading:
@@ -250,18 +289,19 @@ article .song_list div:nth-child(2){
     .cover{
         grid-column: 1;
         grid-row: 1;
+        border-radius: 15px 0 0 15px;
     }
 
     .cover img{
         border-radius: 15px 0 0 15px;
     }
 
-    .cover:hover .show_hover{
-        display: none;
+    .cover:hover .show_not_hover{
+        opacity: 100;
     }
 
-    .cover:hover .show_not_hover{
-        display: block;
+    .show_hover{
+        display: none;
     }
 
     .song_list{
@@ -305,9 +345,19 @@ article .song_list div:nth-child(2){
 @media (max-width:500px){
  article{
     grid-template-columns: 1fr;
- }   
+    grid-template-rows: 50% 25% 25% 25%;
+ }  
+ 
+ .cover{
+    height: 55vh;
+    border-radius: 15px 15px 0 0;
+ }
+ .cover:hover .show_not_hover{
+    opacity: 100;
+}
  .cover img{
     border-radius: 15px 15px 0 0;
+    object-fit: contain;
 }
 
  .song_list{
@@ -318,6 +368,13 @@ article .song_list div:nth-child(2){
 
 article .song_list div:nth-child(1){
     border-radius: 0 0 0 15px;
+}
+.album_data{
+    grid-row: 3;
+}
+
+.anecdotes{
+    grid-row: 4;
 }
 
 body > div{
