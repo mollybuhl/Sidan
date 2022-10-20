@@ -19,7 +19,7 @@
 
 body{
     margin: 0;
-    background-image: url("images/test/Screen-Shot-2022-03-03-at-8.09.47-AM.webp");
+    background-image: url("images/background_desktop.jpg");
     background-position:center;
     background-size: cover;
     background-attachment: fixed;
@@ -29,7 +29,7 @@ body{
     font-size: var(--text);
 }
 
-
+/*Svart bakgrund*/ 
 body > div{
     background-color: rgb(0, 0, 0,0.5);
     border-radius: 15px;
@@ -39,8 +39,7 @@ body > div{
     position: relative;
 }
 
-
-
+/*Header*/ 
 header h1{
     font-size: var(--heading);
     font-family: BungeeShade-Regular;
@@ -82,6 +81,7 @@ nav div:hover{
     color: black;
 }
 
+/*Article - for both*/ 
 article{
     margin-top:50px;
     padding:20px;
@@ -114,6 +114,25 @@ article{
 .album_data h2{
     margin-top: -3vh;
 }
+
+/*Icon*/ 
+#axis_bold_as_love .album_data{
+    position: relative;
+}
+#axis_bold_as_love .album_data::before{
+    content: '';
+    background-image: url("../../media/media/number-1-icon.png");
+    background-size: 6vh 6vh;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    top:-30px;
+    left: -30px;
+    height: 50px;
+    width: 50px;
+}
+
+/*Cover Images*/ 
 .cover{
     position: relative;
     display: flex;
@@ -142,6 +161,7 @@ article{
   opacity: 0;
 }
 
+/*Song lists*/ 
 .song_list{
     grid-column: 2;
     grid-row: 2;
@@ -174,10 +194,9 @@ article{
     background-color:#F4796A;
     color: #F6B29B;
 }
-
 #axis_bold_as_love .song_list div{
-    background-color:#273385;
-    color:#361D47;
+    background-color: #C5653D;
+    color:#EBE3D0;
 }
 
 article .song_list div:nth-child(1){
@@ -187,6 +206,7 @@ article .song_list div:nth-child(2){
     border-radius: 0 0 15px 0;
 }
 
+/*Grid*/ 
 .anecdotes{
     grid-column: 1/span 2;
     grid-row: 3;
@@ -200,10 +220,6 @@ article .song_list div:nth-child(2){
     padding: 0;
     list-style: none;
 }
-
-.empty {
-    display: none;
-}
 .anecdotes li{
     padding: var(--padding_10);
     box-sizing: border-box;
@@ -215,10 +231,36 @@ article .song_list div:nth-child(2){
 }
 
 #axis_bold_as_love .anecdotes > li{
-    background-color: #361D47;
-    color: #273385;
+    background-color: #EBE3D0;
+    color: #C5653D;
 }
 
+/*Grid:1 - First box*/ 
+.top_right_90{
+    border-radius: 15px 0 15px 15px;
+}
+
+/*Empty Boxes*/ 
+.empty {
+    display: none;
+}
+
+/*Grid:1 & 2 - Dubble box*/ 
+.two_wide {
+    grid-column: span 2;
+    border-radius: 15px 15px 15px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Grid:1 - Dubble box*/ 
+#are_you_experienced .two_wide{
+    grid-column: 3/span 2;
+}
+
+/*Grid:1 - Luke image*/ 
 .image_1{
     background-image: url("images/luke_hemmings.jpg");
     background-position: center;
@@ -231,47 +273,24 @@ article .song_list div:nth-child(2){
     grid-column: 5;
 }
 
-.top_left_90{
-    border-radius: 0 10px 10px 10px;
-}
-
-#axis_bold_as_love .image_1{
-    background-image: url("images/studio.jpg");
-}
-
-.top_right_90{
-    border-radius: 15px 0 15px 15px;
-}
-.two_wide {
-    grid-column: span 2;
-    border-radius: 15px 15px 15px 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#are_you_experienced .two_wide{
-    grid-column: 3/span 2;
-}
-
+/*Grid:1 & 2 - Furthest righ box*/ 
 .bottom_right_90{
     grid-column: 6;
     border-radius: 15px 15px 0 15px;
 }
-#axis_bold_as_love .album_data{
-    position: relative;
-}
-#axis_bold_as_love .album_data::before{
-    content: url('../../media/media/number-1-icon.png');
-    background-image: url("");
-    display: inline-block;
-    position: absolute;
-    top:5px;
-    height: 15px;
-    width: 15px;
+
+/*Grid:2 - Second box (& Luke image)*/ 
+.top_left_90{
+    border-radius: 0 10px 10px 10px;
 }
 
+/*Grid:2 - Image box*/ 
+#axis_bold_as_love .image_1{
+    background-image: url("images/studio.jpg");
+    grid-column: 4/span 2;
+}
+
+/*Footer*/ 
 footer{
     position: absolute;
     bottom: 20px;
@@ -294,7 +313,9 @@ footer{
 
     .cover img{
         border-radius: 15px 0 0 15px;
+        object-fit: cover;
     }
+    
 
     .cover:hover .show_not_hover{
         opacity: 100;
@@ -312,6 +333,11 @@ footer{
     .song_list h2{
         font-size: var(--sub_heading);
     }
+
+    .song_list ul{
+        padding-left: 7px;
+    }
+
     article .song_list div:nth-child(1){
         border-radius: 0 15px 0 0;
     }
@@ -319,6 +345,20 @@ footer{
     .album_data{
         grid-row: 2;
         grid-column: 1/span 2;
+    }
+
+    .album_data h1{
+        margin: 0;
+        margin-top:-2vh;
+    }
+    
+    .album_data h2{
+        margin-top: -3vh;
+    }
+
+    #axis_bold_as_love .album_data::before{
+        top:-10px;
+        left: -20px;
     }
 
     .anecdotes{
@@ -371,7 +411,7 @@ article .song_list div:nth-child(1){
 }
 .album_data{
     grid-row: 3;
-}
+}   
 
 .anecdotes{
     grid-row: 4;
